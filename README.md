@@ -82,3 +82,7 @@ npx playwright show-report
 - @playwright/test
 - typescript
 - @types/node
+
+# Commands
+- npx playwright test 
+- npx playwright codegen
