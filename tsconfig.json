@@ -9,6 +9,7 @@
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
     "types": ["node", "@playwright/test"],
     "lib": ["esnext", "dom"]
   },

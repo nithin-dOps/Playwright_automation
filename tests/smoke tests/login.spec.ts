@@ -1,17 +1,18 @@
-import { test, expect, Locator } from '@playwright/test';
+import { test, expect } from '@playwright/test';
+import loginData from '../../testdata/loginData.json';
+import {LoginPage} from '../../pages/LoginPage';
 
-test('test', async ({ page }) => {
-  await page.goto('https://naveenautomationlabs.com/opencart/index.php?route=account/login');
+test('Login Test', async ({ page }) => {
 
-    const emailId:Locator = await page.locator('#input-email');
-    const password:Locator = await page.locator('#input-password');
-    const loginButton:Locator = await page.locator('input[value="Login"]');
-    await emailId.fill("nitban09@gmail.com");
-    await password.fill("testpw@123");
-    await loginButton.click();
-    const title = await page.title();
-    console.log("home page title:", title );
-    await page.screenshot({path:'login.png'});
- expect(title).toEqual('My Account');
-    await page.close();
+    const loginPage = new LoginPage(page);
+
+    await loginPage.goto();
+
+    await loginPage.login(
+        loginData.email,
+        loginData.password
+    );
+
+    await expect(page).toHaveTitle('My Account');
+
 });
