@@ -10,3 +10,6 @@ node_modules/
 # Test data with sensitive credentials
 testdata/*.json
 !testdata/*.example.json
+
+# Environment variables
+.env
